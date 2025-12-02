@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.todo-container {
+  background: #fafafa;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  padding: 30px 25px 40px 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #333333;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* Input and button */
+
+.input-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.input-area #input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #dde1e6;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  background: #fafbfc;
+  transition: all 0.3s ease;
+}
+
+.input-area #input:focus {
+  border-color: #fa7d69;
+  box-shadow: 0 0 8px rgba(255, 99, 38, 0.3);
+}
+
+.input-area #input::placeholder {
+  color: #999;
+}
+
+.input-area button {
+  padding: 14px 42px;
+  background: #f55c43;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+}
+
+.input-area button:hover {
+  background: #f55c43;
+  transform: translateY(-1px);
+}
+
+.btns {
+  display: flex;
+  gap: 5px;
+}
+
+.delete {
+  padding: 10px 20px;
+  background: #f55c43;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.edit {
+  padding: 10px 20px;
+  background: #f55c43;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Task list */
+
+#tasklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#tasklist li {
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+  transition: background 0.2s ease;
+}
+
+#tasklist li:hover {
+  background: #eef2ff;
+}
+
+.task-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.task-disc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.date-time {
+  background: #f55c43;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 18px;
+  color: #333;
+  word-break: break-word;
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  accent-color: #f55c43;
+  cursor: pointer;
+}
+
+.info {
+  background-color: #f55c43;
+  height: 25px;
+}
+
+.info .date-time {
+  color: #fff;
+}
+
+/* Select && option */
+
+.left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom-select {
+  width: 150px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.selected {
+  padding: 10px 14px;
+  background: #fff;
+  border: 2px solid #d3d3d3;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.custom-select .options {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+  background: #fff;
+  border: 2px solid #d3d3d3;
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  display: none;
+  z-index: 10;
+}
+
+.custom-select .options li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  transition: 0.2s;
+}
+
+.custom-select .options li:hover {
+  background: #f0f0f0;
+}
+
+.custom-select.open .options {
+  display: block;
+}
+
+.task-animation {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  animation: animationTask 0.35s ease-out forwards;
+}
+
+@keyframes animationTask {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.task-noanimation {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  animation: animationnoTask 0.35s ease-out forwards;
+}
+
+@keyframes animationnoTask {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 530px) {
+  .input-area input {
+    width: 10rem;
+  }
+
+  #tasklist li {
+    flex-direction: column;
+  }
+
+  .btns {
+    margin-top: 0.7rem;
+    margin-left: 3rem;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 5px;
+  }
+}

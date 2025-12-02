@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="todo-container">
+      <h1>My Todo App</h1>
+
+      <div class="input-area">
+        <input id="input" type="text" placeholder="Enter task" />
+        <button id="add">Add</button>
+      </div>
+
+      <div class="left">
+        <div class="custom-select">
+          <div class="selected">Sort By</div>
+          <ul class="options">
+            <li data-value="az" class="az">A - Z</li>
+            <li data-value="za" class="za">Z - A</li>
+            <li data-value="date" class="dt">Date & Time</li>
+          </ul>
+        </div>
+      </div>
+
+      <ul id="tasklist"></ul>
+
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
